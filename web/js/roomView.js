@@ -30,6 +30,7 @@ BubbleFactory, Clipboard, LayoutManager */
   var hideFeedbackButtonTimer;
   var overCallControls = false;
   var overFeedbackButton = false;
+  var pinCallControl = true;
 
   var _unreadMsg = 0;
   var _chatHasBeenShown = false;
@@ -286,6 +287,10 @@ BubbleFactory, Clipboard, LayoutManager */
   }
 
   function hideCallControls() {
+    if (pinCallControl)
+    {
+      return;
+    }      
     hideCallControlsTimer = null;
     callControlsElem.classList.remove('visible');
   }
@@ -425,6 +430,9 @@ BubbleFactory, Clipboard, LayoutManager */
         return;
       }
       switch (elem.id) {
+        case pin:
+            pinCallControl = !pinCallControl;
+            break;
         case 'addToCall':
           Utils.sendEvent('roomView:addToCall');
           break;
