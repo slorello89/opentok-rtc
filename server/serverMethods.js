@@ -691,6 +691,10 @@ function ServerMethods(aLogLevel, aModules) {
       });
   }
 
+  function getAnswer(aReq, aRes){
+    
+    return aRes.status(200).send('{}');
+  }
   // /room/:roomName/dial
   // Returns DialInfo:
   // { number: string, status: string }
