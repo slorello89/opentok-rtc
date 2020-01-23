@@ -51,9 +51,9 @@
       handleEvent(e);
     });
     
-    document.addEventListener('keydown', function (e) {
+    publishSettings.addEventListener('keydown', function (e) {
       if (e.which === 13 || e.keyCode === 13) {
-        handleEvent({target: document.activeElement});
+        handleEvent({target: document.activeElement });
       }
     });
 

@@ -74,6 +74,16 @@
         }
 
         document.querySelector('.user-name-modal #enter').disabled = false;
+
+        document.querySelector('.tc-dialog').addEventListener('submit', function (event) {
+          event.preventDefault();
+        });
+
+        document.querySelector('#enter').addEventListener('click', function (event) {
+          event.preventDefault();
+          submitForm();
+        });
+
         document.querySelector('.user-name-modal').addEventListener('keypress', function (event) {
           if (event.which === 13) {
             event.preventDefault();
