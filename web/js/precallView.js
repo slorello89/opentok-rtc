@@ -48,54 +48,15 @@
     var publishSettings = document.querySelector('.publish-settings');
 
     publishSettings.addEventListener('click', function (e) {
-      var initialVideoSwitch = document.querySelector('#initialVideoSwitch');
-      var initialAudioSwitch = document.querySelector('#initialAudioSwitch');
-
-      setTimeout(function () {
-        // This must be done asynchronously to hide the virtual keyboard in iOS:
-        document.activeElement.blur();
-      }, 1);
-
-      // pointer-events is not working on IE so we can receive as target a child
-      var elem = HTMLElems.getAncestorByTagName(e.target, 'a');
-
-      if (!elem) {
-        return;
-      }
-      switch (elem.id) {
-        case 'preToggleFacingMode':
-          Utils.sendEvent('roomView:toggleFacingMode');
-          break;
-        case 'prePickMic':
-          var select = document.getElementById('select-devices');
-          select.style.display = 'inline-block';
-          Modal.showConfirm({
-            head: 'Set mic input',
-            detail: 'Please identify the audio source in the following list:',
-            button: 'Set'
-          }, true).then(function (start) {
-            if (start) {
-              Utils.sendEvent('roomView:setAudioSource', select.value);
-            }
-            select.style.display = 'none';
-          });
-          break;
-        case 'initialAudioSwitch':
-          if (!initialAudioSwitch.classList.contains('activated')) {
-            setSwitchStatus(true, 'Audio', 'roomView:initialAudioSwitch');
-          } else {
-            setSwitchStatus(false, 'Audio', 'roomView:initialAudioSwitch');
-          }
-          break;
-        case 'initialVideoSwitch':
-          if (!initialVideoSwitch.classList.contains('activated')) {
-            setSwitchStatus(true, 'Video', 'roomView:initialVideoSwitch');
-          } else {
-            setSwitchStatus(false, 'Video', 'roomView:initialVideoSwitch');
-          }
-          break;
+      handleEvent(e);
+    });
+    
+    document.addEventListener('keydown', function (e) {
+      if (e.which === 13 || e.keyCode === 13) {
+        handleEvent({target: document.activeElement});
       }
     });
+
 
     var videoPreviewElement = document.getElementById('video-preview');
     var videoPreviewNameElement = document.getElementById('video-preview-name');
@@ -106,6 +67,57 @@
       videoPreviewNameElement.style.opacity = 0;
     });
   };
+
+  
+  function handleEvent(e) {
+    var initialVideoSwitch = document.querySelector('#initialVideoSwitch');
+    var initialAudioSwitch = document.querySelector('#initialAudioSwitch');
+
+    setTimeout(function () {
+      // This must be done asynchronously to hide the virtual keyboard in iOS:
+      document.activeElement.blur();
+    }, 1);
+
+    // pointer-events is not working on IE so we can receive as target a child
+    var elem = HTMLElems.getAncestorByTagName(e.target, 'a');
+
+    if (!elem) {
+      return;
+    }
+    switch (elem.id) {
+      case 'preToggleFacingMode':
+        Utils.sendEvent('roomView:toggleFacingMode');
+        break;
+      case 'prePickMic':
+        var select = document.getElementById('select-devices');
+        select.style.display = 'inline-block';
+        Modal.showConfirm({
+          head: 'Set mic input',
+          detail: 'Please identify the audio source in the following list:',
+          button: 'Set'
+        }, true).then(function (start) {
+          if (start) {
+            Utils.sendEvent('roomView:setAudioSource', select.value);
+          }
+          select.style.display = 'none';
+        });
+        break;
+      case 'initialAudioSwitch':
+        if (!initialAudioSwitch.classList.contains('activated')) {
+          setSwitchStatus(true, 'Audio', 'roomView:initialAudioSwitch');
+        } else {
+          setSwitchStatus(false, 'Audio', 'roomView:initialAudioSwitch');
+        }
+        break;
+      case 'initialVideoSwitch':
+        if (!initialVideoSwitch.classList.contains('activated')) {
+          setSwitchStatus(true, 'Video', 'roomView:initialVideoSwitch');
+        } else {
+          setSwitchStatus(false, 'Video', 'roomView:initialVideoSwitch');
+        }
+        break;
+    }
+  }
 
   function render(resolve) {
     var templatePromises = [_precallTemplate.render()];
