@@ -91,7 +91,6 @@
       case 'prePickMic':
         var select = document.getElementById('select-devices');
         select.style.display = 'inline-block';
-        select.focus();
         Modal.showConfirm({
           head: 'Set mic input',
           detail: 'Please identify the audio source in the following list:',
@@ -102,6 +101,7 @@
           }
           select.style.display = 'none';
         });
+        select.focus();
         break;
       case 'initialAudioSwitch':
         if (!initialAudioSwitch.classList.contains('activated')) {
