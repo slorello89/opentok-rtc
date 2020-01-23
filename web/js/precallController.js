@@ -75,11 +75,6 @@
 
         document.querySelector('.user-name-modal #enter').disabled = false;
 
-        document.querySelector('.tc-dialog').addEventListener('submit', function (event) {
-          event.preventDefault();
-          return false;
-        });
-
         document.querySelector('#enter').addEventListener('click', function (event) {
           event.preventDefault();
           submitForm();
@@ -94,7 +89,7 @@
 
         document.querySelector('.user-name-modal .tc-dialog').addEventListener('submit', function (event) {
           event.preventDefault();
-          submitForm();
+          return false;
         });
 
         function hidePrecall() {
