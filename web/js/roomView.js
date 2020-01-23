@@ -235,6 +235,8 @@ BubbleFactory, Clipboard, LayoutManager */
     messageButtonElem = document.getElementById('message-btn');
     topBannerElem = document.getElementById('top-banner');
     screenElem = document.getElementById('screen');
+    document.getElementById("videoSwitch").tabIndex="1";
+    document.getElementById("audioSwitch").tabIndex="2";
 
     // The title takes two lines maximum when the dock is expanded. When the title takes
     // one line with expanded mode, it ends taking two lines while is collapsing because the witdh
