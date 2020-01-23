@@ -91,6 +91,7 @@
       case 'prePickMic':
         var select = document.getElementById('select-devices');
         select.style.display = 'inline-block';
+        select.focus();
         Modal.showConfirm({
           head: 'Set mic input',
           detail: 'Please identify the audio source in the following list:',
