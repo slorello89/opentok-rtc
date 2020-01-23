@@ -262,39 +262,39 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/ErrorInfo'
-  # '/dialin':
-  #   get:
-  #     summary: Dial into a nexmo number
-  #     x-implemented-in: getAnswer
-  #     consumes:
-  #       - application/x-www-form-urlencoded
-  #     produces:
-  #       - application/json
-  #     tags:
-  #       - DialIn
-  #     parameters:
-  #       - name: to
-  #         in: path
-  #         description: inbound
-  #         required: true
-  #         type: string
-  #       - name: from
-  #         in: path
-  #         required: true
-  #         type: string
-  #       - name: uuid
-  #         in: path
-  #         type: string
-  #         required: true
-  #       - name: conversation_uuid
-  #         in: path
-  #         type: string
-  #         required: true
-  #     responses:
-  #       '200':
-  #         description: Information about the SIP call
-  #         schema:
-  #           $ref: '#/definitions/DialInfo'
+  '/dialin':
+    get:
+      summary: Dial into a nexmo number
+      x-implemented-in: getAnswer
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      tags:
+        - DialIn
+      parameters:
+        - name: to
+          in: path
+          description: inbound
+          required: true
+          type: string
+        - name: from
+          in: path
+          required: true
+          type: string
+        - name: uuid
+          in: path
+          type: string
+          required: true
+        - name: conversation_uuid
+          in: path
+          type: string
+          required: true
+      responses:
+        '200':
+          description: Information about the SIP call
+          schema:
+            $ref: '#/definitions/DialInfo'
   '/room/{roomName}/dial':
     post:
       summary: Starts a SIP dial-out call

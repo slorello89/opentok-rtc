@@ -873,6 +873,7 @@ function ServerMethods(aLogLevel, aModules) {
     getArchive,
     deleteArchive,
     getRoomArchive,
+    getAnswer,
     postRoomDial,
     postHangUp,
     getHealth,
