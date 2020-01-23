@@ -246,7 +246,7 @@ BubbleFactory, Clipboard, LayoutManager */
     document.getElementById("toggle-publisher-video").tabIndex="9";
     document.getElementById("toggle-publisher-audio").tabIndex="10";
     document.getElementById("addToCall").tabIndex="11";
-    document.getElementById("screen-share").tabIndex="12";
+    // document.getElementById("screen-share").tabIndex="12";
     document.getElementById("message-btn").tabIndex="13";   
 
 
