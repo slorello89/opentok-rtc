@@ -285,9 +285,16 @@ paths:
         - name: uuid
           in: path
           type: string
+          required: true
         - name: conversation_uuid
           in: path
           type: string
+          required: true
+      responses:
+        '200':
+          description: Information about the SIP call
+          schema:
+            $ref: '#/definitions/DialInfo'
   '/room/{roomName}/dial':
     post:
       summary: Starts a SIP dial-out call
