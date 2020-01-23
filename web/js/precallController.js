@@ -80,13 +80,6 @@
           submitForm();
         });
 
-        document.querySelector('.user-name-modal').addEventListener('keypress', function (event) {
-          if (event.which === 13) {
-            event.preventDefault();
-            submitForm();
-          }
-        });
-
         document.querySelector('.user-name-modal .tc-dialog').addEventListener('submit', function (event) {
           event.preventDefault();
           return false;
