@@ -432,6 +432,11 @@ BubbleFactory, Clipboard, LayoutManager */
       switch (elem.id) {
         case 'pin':
             pinCallControl = !pinCallControl;
+            if (!pinCallControl){
+              if (!overCallControls && !hideCallControlsTimer) {
+                hideCallControlsTimer = setTimeout(hideCallControls, 3000);
+              }
+            }
             break;
         case 'addToCall':
           Utils.sendEvent('roomView:addToCall');
