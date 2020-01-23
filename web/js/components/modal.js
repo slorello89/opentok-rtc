@@ -67,10 +67,13 @@
         });
         modal.classList.add('visible');
         modal.classList.add('show');
-        var select = document.getElementById('select-devices');
-        if (select.style.display == 'inline-block') {
-          select.focus();
-        }
+        setTimeout(() => {
+          var select = document.getElementById('select-devices');
+          if (select.style.display == 'inline-block') {
+            select.focus();
+          }
+        }, 1000);
+       
       });
     });
   }
