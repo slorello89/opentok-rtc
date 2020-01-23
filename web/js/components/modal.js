@@ -67,6 +67,10 @@
         });
         modal.classList.add('visible');
         modal.classList.add('show');
+        var select = document.getElementById('select-devices');
+        if (select.style.display == 'inline-block') {
+          select.focus();
+        }
       });
     });
   }

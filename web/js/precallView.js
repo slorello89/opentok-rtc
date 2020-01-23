@@ -101,7 +101,6 @@
           }
           select.style.display = 'none';
         });
-        select.focus();
         break;
       case 'initialAudioSwitch':
         if (!initialAudioSwitch.classList.contains('activated')) {
