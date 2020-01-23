@@ -430,7 +430,7 @@ BubbleFactory, Clipboard, LayoutManager */
         return;
       }
       switch (elem.id) {
-        case pin:
+        case 'pin':
             pinCallControl = !pinCallControl;
             break;
         case 'addToCall':
