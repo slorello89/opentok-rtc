@@ -237,6 +237,18 @@ BubbleFactory, Clipboard, LayoutManager */
     screenElem = document.getElementById('screen');
     document.getElementById("videoSwitch").tabIndex="1";
     document.getElementById("audioSwitch").tabIndex="2";
+    document.getElementById("toggleFacingMode").tabIndex="3";
+    document.getElementById("pickMic").tabIndex="4";
+    document.getElementById("startArchiving").tabIndex="5";
+    document.getElementById("chooseLayout").tabIndex="6";
+    document.getElementById("pin").tabIndex="7";
+    document.getElementById("endCall").tabIndex="8";
+    document.getElementById("toggle-publisher-video").tabIndex="9";
+    document.getElementById("toggle-publisher-audio").tabIndex="10";
+    document.getElementById("addToCall").tabIndex="11";
+    document.getElementById("screen-share").tabIndex="12";
+    document.getElementById("message-btn").tabIndex="13";   
+
 
     // The title takes two lines maximum when the dock is expanded. When the title takes
     // one line with expanded mode, it ends taking two lines while is collapsing because the witdh
