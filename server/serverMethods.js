@@ -350,6 +350,7 @@ function ServerMethods(aLogLevel, aModules) {
 
     // Create a session ID and token for the network test
     tbConfig.precallOtInstance.createSession({ mediaMode: 'routed' }, (error, testSession) => {
+      theSession = testSession.sessionId;
       // We really don't want to cache this
       aRes.set('Cache-Control', 'no-cache, no-store, must-revalidate');
       aRes.set('Pragma', 'no-cache');
