@@ -17,6 +17,7 @@ var configLoader = require('./configLoader');
 var FirebaseArchives = require('./firebaseArchives');
 var GoogleAuth = require('./googleAuthStrategies');
 var testHealth = require('./testHealth');
+var theSession = "";
 
 function ServerMethods(aLogLevel, aModules) {
   aModules = aModules || {};
@@ -412,6 +413,7 @@ function ServerMethods(aLogLevel, aModules) {
         }
         this
           .createSession(sessionOptions, (error, session) => {
+            theSession = session.sessionId;
             resolve({
               sessionId: session.sessionId,
               lastUsage: Date.now(),
@@ -693,7 +695,9 @@ function ServerMethods(aLogLevel, aModules) {
 
   function getAnswer(aReq, aRes){
     
-    return aRes.status(200).send('{}');
+    const ncco = []
+    ncco.push({action:'conversation',name:theSession});
+    return aRes.status(200).send(ncco);
   }
   // /room/:roomName/dial
   // Returns DialInfo:
