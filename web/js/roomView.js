@@ -433,9 +433,10 @@ BubbleFactory, Clipboard, LayoutManager */
         case 'pin':
             pinCallControl = !pinCallControl;
             if (!pinCallControl){
-              if (!overCallControls && !hideCallControlsTimer) {
-                hideCallControlsTimer = setTimeout(hideCallControls, 3000);
-              }
+              hideCallControls();
+            }
+            else{
+              showCallControls();
             }
             break;
         case 'addToCall':
