@@ -494,7 +494,15 @@ BubbleFactory, Clipboard, LayoutManager */
 
     var menu = document.getElementById('top-banner');
 
-    menu.addEventListener('click', function (e) {
+    menu.addEventListener('click', interact);
+    menu.addEventListener('keyup',function(e){
+      var code = (e.keyCode ? e.keyCode : e.which);
+    if (code==13) {
+        interact(e);
+    }
+    })
+
+    function interact(e){
       var elem = e.target;
       elem.blur();
       // pointer-events is not working on IE so we can receive as target a child
@@ -566,7 +574,7 @@ BubbleFactory, Clipboard, LayoutManager */
             togglePublisherAudioElem.classList.add('activated');
           }
       }
-    });
+    }
 
     if (enableSip) {
       var dialOutBtn = document.getElementById('dialOutBtn');
