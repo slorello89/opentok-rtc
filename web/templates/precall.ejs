@@ -10,7 +10,7 @@
     </div>
     <div id="enter-name-prompt">
       <div>
-        <input id="user-name-input" class="block username" autocomplete="off" autofocus>
+        <input id="user-name-input" class="block username" tabindex="1" autocomplete="off" autofocus>
         <label>Your Name (Optional)</label>
       </div>
     </div>
@@ -21,9 +21,9 @@
           <span>Camera</span>
         </div>
         <div class="sourcePick switch-button" id="video-switch">
-          <a id="preToggleFacingMode"> Switch </a>
+          <a id="preToggleFacingMode" tabindex="1"> Switch </a>
         </div>
-        <a id="initialVideoSwitch" class="activated">
+        <a id="initialVideoSwitch" tabindex="2" class="activated">
           <label>On</label>
           <i data-icon="videoSwitch"></i>
         </a>
@@ -40,9 +40,9 @@
           </div>
         </div>
         <div class="sourcePick switch-button" id="audio-switch">
-          <a id="prePickMic"> Switch </a>
+          <a id="prePickMic" tabindex="3"> Switch </a>
         </div>
-        <a id="initialAudioSwitch" class="activated">
+        <a id="initialAudioSwitch" tabindex="4" class="activated">
           <label>On</label>
           <i data-icon="audioSwitch"></i>
         </a>
@@ -54,7 +54,7 @@
           <span>Connectivity test</span>
           <span id="test-status">
             <label></label>
-            <button id="connectivity-cancel">
+            <button id="connectivity-cancel" tabindex="5">
               <i data-icon="connectivity-cancel"></i>
             </button>
           </span>
@@ -64,13 +64,13 @@
         <div id="precall-test-meter-level">
         </div>
       </div>
-      <button id="enter" class="btn btn-blue btn-padding" type="submit" disabled>
+      <button id="enter" class="btn btn-blue btn-padding" type="submit" tabindex="6" disabled>
         <span class="room-name"></span>
       </button>
     </form>
   </div>
   <div id="pre-call-test-results">
-    <i data-icon="close-box" id="precall-close"></i>
+    <i data-icon="close-box" id="precall-close" tabindex="7"></i>
     <i data-icon="precall-tick" id="precall-icon"></i>
     <p id="pre-call-heading">Precall Test Results</p>
     <p id="pre-call-description">
@@ -103,7 +103,7 @@
         </p>
       </div>
     </div>
-    <div id="retest">
+    <div id="retest" tabindex="8">
       <i data-icon="precall-retest" id="precall-retest"></i>
       Re-test
     </div>
